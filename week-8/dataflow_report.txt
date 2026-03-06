@@ -1,0 +1,24 @@
+============================================================
+DATA-FLOW ANALYSIS REPORT
+============================================================
+
+SUMMARY:
+Total Data Flows Tracked: 2
+Insecure Flows: 2
+Crypto Misuse: 3
+Semantic Violations: 1
+
+INSECURE DATA FLOWS:
+----------------------------------------
+
+Flow #1:
+  Source: Line 2 - 'password'
+  Sink: Line 5 - AES_encrypt
+  Status: INSECURE (hardcoded secret)
+
+Flow #2:
+  Source: Line 2 - 'supersecret123'
+  Sink: Line 5 - AES_encrypt
+  Status: INSECURE (hardcoded secret)
+
+============================================================

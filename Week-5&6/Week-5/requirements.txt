@@ -1,0 +1,11 @@
+# Required packages for Week 5 implementation
+# Install with: pip install -r requirements.txt
+
+# Core dependencies
+regex==2023.12.25
+colorama==0.4.6
+pygments==2.17.2
+ 
+# Development dependencies (optional)
+pytest==7.4.4
+black==23.12.1
