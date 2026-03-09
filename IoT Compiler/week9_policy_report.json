@@ -1,0 +1,1106 @@
+{
+  "timestamp": "2026-03-09T22:08:34.154896",
+  "policy": {
+    "policy_name": "default_iot_policy",
+    "security_level": "HIGH",
+    "target_device": "constrained_iot",
+    "energy_aware": true,
+    "rules": [
+      {
+        "id": "R001",
+        "name": "NO_HARDCODED_KEYS",
+        "enabled": true,
+        "action": "BLOCK"
+      },
+      {
+        "id": "R002",
+        "name": "STRONG_CRYPTO_ONLY",
+        "enabled": true,
+        "action": "BLOCK"
+      },
+      {
+        "id": "R003",
+        "name": "SECURE_PROTOCOLS",
+        "enabled": true,
+        "action": "BLOCK"
+      },
+      {
+        "id": "R004",
+        "name": "MEMORY_SAFETY",
+        "enabled": true,
+        "action": "WARN"
+      },
+      {
+        "id": "R005",
+        "name": "DISABLE_DEBUG",
+        "enabled": true,
+        "action": "WARN"
+      },
+      {
+        "id": "R006",
+        "name": "SECURE_RANDOM",
+        "enabled": true,
+        "action": "BLOCK"
+      }
+    ]
+  },
+  "security_score": 0,
+  "compilation_successful": false,
+  "total_actions": 71,
+  "actions_by_rule": {},
+  "enforcement_actions": [
+    {
+      "rule_id": "R001",
+      "rule_name": "NO_HARDCODED_KEYS",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 18,
+        "type": "HARDCODED_KEY",
+        "code": "API_KEY[] = \"sk_live_51H5XyZJ7yK9rL2mN4pQ6rS8tU0vW2xY4\"",
+        "severity": "CRITICAL",
+        "suggestion": "Use secure key storage or key management service"
+      },
+      "line": 18,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "NO_HARDCODED_KEYS",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 19,
+        "type": "HARDCODED_KEY",
+        "code": "PASSWORD[] = \"admin123\"",
+        "severity": "CRITICAL",
+        "suggestion": "Use secure key storage or key management service"
+      },
+      "line": 19,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "NO_HARDCODED_KEYS",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 20,
+        "type": "HARDCODED_KEY",
+        "code": "SECRET_TOKEN[] = \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ\"",
+        "severity": "CRITICAL",
+        "suggestion": "Use secure key storage or key management service"
+      },
+      "line": 20,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 30,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 30,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 32,
+        "type": "WEAK_CRYPTO",
+        "code": "MD5",
+        "severity": "CRITICAL",
+        "suggestion": "Use strong algorithms: AES-256-GCM, SHA-256"
+      },
+      "line": 32,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 39,
+        "type": "WEAK_CRYPTO",
+        "code": "DES",
+        "severity": "CRITICAL",
+        "suggestion": "Use strong algorithms: AES-256-GCM, SHA-256"
+      },
+      "line": 39,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 44,
+        "type": "WEAK_CRYPTO",
+        "code": "RC4",
+        "severity": "CRITICAL",
+        "suggestion": "Use strong algorithms: AES-256-GCM, SHA-256"
+      },
+      "line": 44,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 48,
+        "type": "WEAK_CRYPTO",
+        "code": "SHA1",
+        "severity": "CRITICAL",
+        "suggestion": "Use strong algorithms: AES-256-GCM, SHA-256"
+      },
+      "line": 48,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 62,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 62,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "SECURE_PROTOCOLS",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 67,
+        "type": "INSECURE_PROTOCOL",
+        "code": "http://",
+        "severity": "HIGH",
+        "suggestion": "Use secure protocols: HTTPS, MQTTS"
+      },
+      "line": 67,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 78,
+        "type": "UNSAFE_FUNCTION",
+        "code": "strcpy(",
+        "severity": "HIGH",
+        "suggestion": "Use bounded versions: strncpy, strncat, snprintf"
+      },
+      "line": 78,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 82,
+        "type": "UNSAFE_FUNCTION",
+        "code": "strcat(",
+        "severity": "HIGH",
+        "suggestion": "Use bounded versions: strncpy, strncat, snprintf"
+      },
+      "line": 82,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 85,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 85,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 85,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 85,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 90,
+        "type": "UNSAFE_FUNCTION",
+        "code": "strcpy(",
+        "severity": "HIGH",
+        "suggestion": "Use bounded versions: strncpy, strncat, snprintf"
+      },
+      "line": 90,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 93,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 93,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "SECURE_RANDOM",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 100,
+        "type": "WEAK_RANDOM",
+        "code": "rand()",
+        "severity": "HIGH",
+        "suggestion": "Use cryptographically secure random generator"
+      },
+      "line": 100,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "SECURE_RANDOM",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 101,
+        "type": "WEAK_RANDOM",
+        "code": "rand()",
+        "severity": "HIGH",
+        "suggestion": "Use cryptographically secure random generator"
+      },
+      "line": 101,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "SECURE_RANDOM",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 108,
+        "type": "WEAK_RANDOM",
+        "code": "rand()",
+        "severity": "HIGH",
+        "suggestion": "Use cryptographically secure random generator"
+      },
+      "line": 108,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 114,
+        "type": "DEBUG_CODE",
+        "code": "DEBUG",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 114,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 116,
+        "type": "DEBUG_CODE",
+        "code": "debug",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 116,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 117,
+        "type": "DEBUG_CODE",
+        "code": "debug_function",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 117,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 118,
+        "type": "DEBUG_CODE",
+        "code": "DEBUG",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 118,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 119,
+        "type": "DEBUG_CODE",
+        "code": "Debug",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 119,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 120,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 120,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 120,
+        "type": "DEBUG_CODE",
+        "code": "DEBUG",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 120,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 121,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 121,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 122,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 122,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 123,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 123,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 128,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 128,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 130,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 130,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 142,
+        "type": "UNSAFE_FUNCTION",
+        "code": "sprintf(",
+        "severity": "HIGH",
+        "suggestion": "Use bounded versions: strncpy, strncat, snprintf"
+      },
+      "line": 142,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 148,
+        "type": "UNSAFE_FUNCTION",
+        "code": "sprintf(",
+        "severity": "HIGH",
+        "suggestion": "Use bounded versions: strncpy, strncat, snprintf"
+      },
+      "line": 148,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 173,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 173,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "SECURE_RANDOM",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "LEXER",
+        "line": 176,
+        "type": "WEAK_RANDOM",
+        "code": "srand(",
+        "severity": "HIGH",
+        "suggestion": "Use cryptographically secure random generator"
+      },
+      "line": 176,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 192,
+        "type": "DEBUG_CODE",
+        "code": "DEBUG",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 192,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 193,
+        "type": "DEBUG_CODE",
+        "code": "debug_function",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 193,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "LEXER",
+        "line": 196,
+        "type": "DEBUG_CODE",
+        "code": "printf",
+        "severity": "LOW",
+        "suggestion": "Remove debug code in production"
+      },
+      "line": 196,
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 30,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 30,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "PARSER",
+        "line": 35,
+        "type": "INSECURE_MD5_INIT_CALL",
+        "severity": "HIGH"
+      },
+      "line": 35,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 62,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 62,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "SECURE_PROTOCOLS",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "PARSER",
+        "line": 68,
+        "type": "INSECURE_HTTP_POST_CALL",
+        "severity": "HIGH"
+      },
+      "line": 68,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 78,
+        "type": "INSECURE_STRCPY_CALL",
+        "severity": "HIGH"
+      },
+      "line": 78,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 85,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 85,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 85,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 85,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 90,
+        "type": "INSECURE_STRCPY_CALL",
+        "severity": "HIGH"
+      },
+      "line": 90,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 93,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 93,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "SECURE_RANDOM",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "PARSER",
+        "line": 100,
+        "type": "INSECURE_RAND_CALL",
+        "severity": "HIGH"
+      },
+      "line": 100,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "SECURE_RANDOM",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "PARSER",
+        "line": 101,
+        "type": "INSECURE_RAND_CALL",
+        "severity": "HIGH"
+      },
+      "line": 101,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "SECURE_RANDOM",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "PARSER",
+        "line": 108,
+        "type": "INSECURE_RAND_CALL",
+        "severity": "HIGH"
+      },
+      "line": 108,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 120,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 120,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 121,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 121,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 122,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 122,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 123,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 123,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 128,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 128,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 173,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 173,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "DISABLE_DEBUG",
+      "action": "WARN",
+      "violation": {
+        "phase": "PARSER",
+        "line": 196,
+        "type": "INSECURE_PRINTF_CALL",
+        "severity": "HIGH"
+      },
+      "line": 196,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "SECURE_PROTOCOLS",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 24,
+        "type": "INSECURE_PROTOCOL",
+        "severity": "HIGH",
+        "rule_id": "SEM004",
+        "message": "Insecure protocol detected",
+        "suggestion": "Use HTTPS or MQTTS"
+      },
+      "line": 24,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 32,
+        "type": "WEAK_CRYPTO_FUNCTION",
+        "function": "MD5",
+        "severity": "CRITICAL",
+        "rule_id": "SEM002",
+        "message": "Weak cryptographic function MD5 detected",
+        "suggestion": "Use strong algorithms like AES-256-GCM or SHA-256"
+      },
+      "line": 32,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 39,
+        "type": "WEAK_CRYPTO_FUNCTION",
+        "function": "DES",
+        "severity": "CRITICAL",
+        "rule_id": "SEM002",
+        "message": "Weak cryptographic function DES detected",
+        "suggestion": "Use strong algorithms like AES-256-GCM or SHA-256"
+      },
+      "line": 39,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 44,
+        "type": "WEAK_CRYPTO_FUNCTION",
+        "function": "RC4",
+        "severity": "CRITICAL",
+        "rule_id": "SEM002",
+        "message": "Weak cryptographic function RC4 detected",
+        "suggestion": "Use strong algorithms like AES-256-GCM or SHA-256"
+      },
+      "line": 44,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 48,
+        "type": "WEAK_CRYPTO_FUNCTION",
+        "function": "SHA1",
+        "severity": "CRITICAL",
+        "rule_id": "SEM002",
+        "message": "Weak cryptographic function SHA1 detected",
+        "suggestion": "Use strong algorithms like AES-256-GCM or SHA-256"
+      },
+      "line": 48,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "SECURE_PROTOCOLS",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 67,
+        "type": "INSECURE_PROTOCOL",
+        "severity": "HIGH",
+        "rule_id": "SEM004",
+        "message": "Insecure protocol detected",
+        "suggestion": "Use HTTPS or MQTTS"
+      },
+      "line": 67,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 78,
+        "type": "UNSAFE_FUNCTION",
+        "function": "strcpy",
+        "severity": "HIGH",
+        "rule_id": "SEM004",
+        "message": "Unsafe function strcpy detected",
+        "suggestion": "Use bounded version instead"
+      },
+      "line": 78,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 82,
+        "type": "UNSAFE_FUNCTION",
+        "function": "strcat",
+        "severity": "HIGH",
+        "rule_id": "SEM004",
+        "message": "Unsafe function strcat detected",
+        "suggestion": "Use bounded version instead"
+      },
+      "line": 82,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 90,
+        "type": "UNSAFE_FUNCTION",
+        "function": "strcpy",
+        "severity": "HIGH",
+        "rule_id": "SEM004",
+        "message": "Unsafe function strcpy detected",
+        "suggestion": "Use bounded version instead"
+      },
+      "line": 90,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 100,
+        "type": "WEAK_CRYPTO_FUNCTION",
+        "function": "rand",
+        "severity": "CRITICAL",
+        "rule_id": "SEM002",
+        "message": "Weak cryptographic function rand detected",
+        "suggestion": "Use strong algorithms like AES-256-GCM or SHA-256"
+      },
+      "line": 100,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 101,
+        "type": "WEAK_CRYPTO_FUNCTION",
+        "function": "rand",
+        "severity": "CRITICAL",
+        "rule_id": "SEM002",
+        "message": "Weak cryptographic function rand detected",
+        "suggestion": "Use strong algorithms like AES-256-GCM or SHA-256"
+      },
+      "line": 101,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "STRONG_CRYPTO_ONLY",
+      "action": "BLOCK",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 108,
+        "type": "WEAK_CRYPTO_FUNCTION",
+        "function": "rand",
+        "severity": "CRITICAL",
+        "rule_id": "SEM002",
+        "message": "Weak cryptographic function rand detected",
+        "suggestion": "Use strong algorithms like AES-256-GCM or SHA-256"
+      },
+      "line": 108,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 142,
+        "type": "UNSAFE_FUNCTION",
+        "function": "sprintf",
+        "severity": "HIGH",
+        "rule_id": "SEM004",
+        "message": "Unsafe function sprintf detected",
+        "suggestion": "Use bounded version instead"
+      },
+      "line": 142,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "MEMORY_SAFETY",
+      "action": "WARN",
+      "violation": {
+        "phase": "SEMANTIC",
+        "line": 148,
+        "type": "UNSAFE_FUNCTION",
+        "function": "sprintf",
+        "severity": "HIGH",
+        "rule_id": "SEM004",
+        "message": "Unsafe function sprintf detected",
+        "suggestion": "Use bounded version instead"
+      },
+      "line": 148,
+      "severity": "HIGH"
+    }
+  ]
+}

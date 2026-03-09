@@ -1,0 +1,413 @@
+{
+  "phase": "Parser & AST Construction (Week 6)",
+  "total_ast_nodes": 11,
+  "security_nodes": 24,
+  "parser_violations": 20,
+  "security_node_types": [
+    "memory",
+    "unknown",
+    "crypto",
+    "debug",
+    "network"
+  ],
+  "ast_structure": [
+    {
+      "type": "FUNCTION_DECL",
+      "line": 18,
+      "security_tags": [],
+      "children": [
+        {
+          "type": "IDENTIFIER",
+          "line": 18,
+          "security_tags": [],
+          "children": [
+            {
+              "type": "API_KEY",
+              "line": 18,
+              "security_tags": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FUNCTION_DECL",
+      "line": 56,
+      "security_tags": [],
+      "children": [
+        {
+          "type": "IDENTIFIER",
+          "line": 56,
+          "security_tags": [
+            "SECURITY_ENTRY"
+          ],
+          "children": [
+            {
+              "type": "mqtt_connect_insecure",
+              "line": 56,
+              "security_tags": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FUNCTION_DECL",
+      "line": 65,
+      "security_tags": [],
+      "children": [
+        {
+          "type": "IDENTIFIER",
+          "line": 65,
+          "security_tags": [
+            "SECURITY_ENTRY"
+          ],
+          "children": [
+            {
+              "type": "http_request",
+              "line": 65,
+              "security_tags": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FUNCTION_DECL",
+      "line": 74,
+      "security_tags": [],
+      "children": [
+        {
+          "type": "IDENTIFIER",
+          "line": 74,
+          "security_tags": [
+            "SECURITY_ENTRY"
+          ],
+          "children": [
+            {
+              "type": "unsafe_copy",
+              "line": 74,
+              "security_tags": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FUNCTION_DECL",
+      "line": 88,
+      "security_tags": [],
+      "children": [
+        {
+          "type": "IDENTIFIER",
+          "line": 88,
+          "security_tags": [],
+          "children": [
+            {
+              "type": "use_after_free",
+              "line": 88,
+              "security_tags": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FUNCTION_DECL",
+      "line": 99,
+      "security_tags": [],
+      "children": [
+        {
+          "type": "IDENTIFIER",
+          "line": 99,
+          "security_tags": [],
+          "children": [
+            {
+              "type": "generate_session_id",
+              "line": 99,
+              "security_tags": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FUNCTION_DECL",
+      "line": 104,
+      "security_tags": [],
+      "children": [
+        {
+          "type": "IDENTIFIER",
+          "line": 104,
+          "security_tags": [],
+          "children": [
+            {
+              "type": "*",
+              "line": 104,
+              "security_tags": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FUNCTION_DECL",
+      "line": 117,
+      "security_tags": [],
+      "children": [
+        {
+          "type": "IDENTIFIER",
+          "line": 117,
+          "security_tags": [],
+          "children": [
+            {
+              "type": "debug_function",
+              "line": 117,
+              "security_tags": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FUNCTION_DECL",
+      "line": 137,
+      "security_tags": [],
+      "children": [
+        {
+          "type": "IDENTIFIER",
+          "line": 137,
+          "security_tags": [
+            "SECURITY_ENTRY"
+          ],
+          "children": [
+            {
+              "type": "send_telemetry",
+              "line": 137,
+              "security_tags": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FUNCTION_DECL",
+      "line": 155,
+      "security_tags": [],
+      "children": [
+        {
+          "type": "IDENTIFIER",
+          "line": 155,
+          "security_tags": [],
+          "children": [
+            {
+              "type": "crypto_operation",
+              "line": 155,
+              "security_tags": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FUNCTION_DECL",
+      "line": 172,
+      "security_tags": [],
+      "children": [
+        {
+          "type": "IDENTIFIER",
+          "line": 172,
+          "security_tags": [],
+          "children": [
+            {
+              "type": "main",
+              "line": 172,
+              "security_tags": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "security_nodes_list": [
+    {
+      "type": "SECURITY_CALL",
+      "line": 30,
+      "tags": [
+        "debug"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 35,
+      "tags": [
+        "crypto"
+      ]
+    },
+    {
+      "type": "IDENTIFIER",
+      "line": 56,
+      "tags": [
+        "SECURITY_ENTRY"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 60,
+      "tags": [
+        "network"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 62,
+      "tags": [
+        "debug"
+      ]
+    },
+    {
+      "type": "IDENTIFIER",
+      "line": 65,
+      "tags": [
+        "SECURITY_ENTRY"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 68,
+      "tags": [
+        "network"
+      ]
+    },
+    {
+      "type": "IDENTIFIER",
+      "line": 74,
+      "tags": [
+        "SECURITY_ENTRY"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 78,
+      "tags": [
+        "memory"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 85,
+      "tags": [
+        "debug"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 85,
+      "tags": [
+        "debug"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 90,
+      "tags": [
+        "memory"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 93,
+      "tags": [
+        "debug"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 100,
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 101,
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 108,
+      "tags": [
+        "unknown"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 120,
+      "tags": [
+        "debug"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 121,
+      "tags": [
+        "debug"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 122,
+      "tags": [
+        "debug"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 123,
+      "tags": [
+        "debug"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 128,
+      "tags": [
+        "debug"
+      ]
+    },
+    {
+      "type": "IDENTIFIER",
+      "line": 137,
+      "tags": [
+        "SECURITY_ENTRY"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 173,
+      "tags": [
+        "debug"
+      ]
+    },
+    {
+      "type": "SECURITY_CALL",
+      "line": 196,
+      "tags": [
+        "debug"
+      ]
+    }
+  ]
+}

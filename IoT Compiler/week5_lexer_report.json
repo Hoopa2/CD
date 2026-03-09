@@ -1,0 +1,635 @@
+{
+  "phase": "Lexical Analysis (Week 5)",
+  "total_tokens": 1384,
+  "total_violations": 40,
+  "violations_by_severity": {
+    "CRITICAL": 7,
+    "HIGH": 10,
+    "MEDIUM": 2,
+    "LOW": 21
+  },
+  "violations": [
+    {
+      "phase": "LEXER",
+      "line": 18,
+      "type": "HARDCODED_KEY",
+      "code": "API_KEY[] = \"sk_live_51H5XyZJ7yK9rL2mN4pQ6rS8tU0vW2xY4\"",
+      "severity": "CRITICAL",
+      "suggestion": "Use secure key storage or key management service"
+    },
+    {
+      "phase": "LEXER",
+      "line": 19,
+      "type": "HARDCODED_KEY",
+      "code": "PASSWORD[] = \"admin123\"",
+      "severity": "CRITICAL",
+      "suggestion": "Use secure key storage or key management service"
+    },
+    {
+      "phase": "LEXER",
+      "line": 20,
+      "type": "HARDCODED_KEY",
+      "code": "SECRET_TOKEN[] = \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ\"",
+      "severity": "CRITICAL",
+      "suggestion": "Use secure key storage or key management service"
+    },
+    {
+      "phase": "LEXER",
+      "line": 23,
+      "type": "IP_ADDRESS",
+      "code": "192.168.1.100",
+      "severity": "MEDIUM",
+      "suggestion": "Avoid hardcoded IPs, use DNS or configuration"
+    },
+    {
+      "phase": "LEXER",
+      "line": 24,
+      "type": "HARDCODED_PORT",
+      "code": "1883",
+      "severity": "MEDIUM",
+      "suggestion": "Use configurable ports"
+    },
+    {
+      "phase": "LEXER",
+      "line": 30,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 32,
+      "type": "WEAK_CRYPTO",
+      "code": "MD5",
+      "severity": "CRITICAL",
+      "suggestion": "Use strong algorithms: AES-256-GCM, SHA-256"
+    },
+    {
+      "phase": "LEXER",
+      "line": 39,
+      "type": "WEAK_CRYPTO",
+      "code": "DES",
+      "severity": "CRITICAL",
+      "suggestion": "Use strong algorithms: AES-256-GCM, SHA-256"
+    },
+    {
+      "phase": "LEXER",
+      "line": 44,
+      "type": "WEAK_CRYPTO",
+      "code": "RC4",
+      "severity": "CRITICAL",
+      "suggestion": "Use strong algorithms: AES-256-GCM, SHA-256"
+    },
+    {
+      "phase": "LEXER",
+      "line": 48,
+      "type": "WEAK_CRYPTO",
+      "code": "SHA1",
+      "severity": "CRITICAL",
+      "suggestion": "Use strong algorithms: AES-256-GCM, SHA-256"
+    },
+    {
+      "phase": "LEXER",
+      "line": 62,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 67,
+      "type": "INSECURE_PROTOCOL",
+      "code": "http://",
+      "severity": "HIGH",
+      "suggestion": "Use secure protocols: HTTPS, MQTTS"
+    },
+    {
+      "phase": "LEXER",
+      "line": 78,
+      "type": "UNSAFE_FUNCTION",
+      "code": "strcpy(",
+      "severity": "HIGH",
+      "suggestion": "Use bounded versions: strncpy, strncat, snprintf"
+    },
+    {
+      "phase": "LEXER",
+      "line": 82,
+      "type": "UNSAFE_FUNCTION",
+      "code": "strcat(",
+      "severity": "HIGH",
+      "suggestion": "Use bounded versions: strncpy, strncat, snprintf"
+    },
+    {
+      "phase": "LEXER",
+      "line": 85,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 85,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 90,
+      "type": "UNSAFE_FUNCTION",
+      "code": "strcpy(",
+      "severity": "HIGH",
+      "suggestion": "Use bounded versions: strncpy, strncat, snprintf"
+    },
+    {
+      "phase": "LEXER",
+      "line": 93,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 100,
+      "type": "WEAK_RANDOM",
+      "code": "rand()",
+      "severity": "HIGH",
+      "suggestion": "Use cryptographically secure random generator"
+    },
+    {
+      "phase": "LEXER",
+      "line": 101,
+      "type": "WEAK_RANDOM",
+      "code": "rand()",
+      "severity": "HIGH",
+      "suggestion": "Use cryptographically secure random generator"
+    },
+    {
+      "phase": "LEXER",
+      "line": 108,
+      "type": "WEAK_RANDOM",
+      "code": "rand()",
+      "severity": "HIGH",
+      "suggestion": "Use cryptographically secure random generator"
+    },
+    {
+      "phase": "LEXER",
+      "line": 114,
+      "type": "DEBUG_CODE",
+      "code": "DEBUG",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 116,
+      "type": "DEBUG_CODE",
+      "code": "debug",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 117,
+      "type": "DEBUG_CODE",
+      "code": "debug_function",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 118,
+      "type": "DEBUG_CODE",
+      "code": "DEBUG",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 119,
+      "type": "DEBUG_CODE",
+      "code": "Debug",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 120,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 120,
+      "type": "DEBUG_CODE",
+      "code": "DEBUG",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 121,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 122,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 123,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 128,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 130,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 142,
+      "type": "UNSAFE_FUNCTION",
+      "code": "sprintf(",
+      "severity": "HIGH",
+      "suggestion": "Use bounded versions: strncpy, strncat, snprintf"
+    },
+    {
+      "phase": "LEXER",
+      "line": 148,
+      "type": "UNSAFE_FUNCTION",
+      "code": "sprintf(",
+      "severity": "HIGH",
+      "suggestion": "Use bounded versions: strncpy, strncat, snprintf"
+    },
+    {
+      "phase": "LEXER",
+      "line": 173,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 176,
+      "type": "WEAK_RANDOM",
+      "code": "srand(",
+      "severity": "HIGH",
+      "suggestion": "Use cryptographically secure random generator"
+    },
+    {
+      "phase": "LEXER",
+      "line": 192,
+      "type": "DEBUG_CODE",
+      "code": "DEBUG",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 193,
+      "type": "DEBUG_CODE",
+      "code": "debug_function",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    },
+    {
+      "phase": "LEXER",
+      "line": 196,
+      "type": "DEBUG_CODE",
+      "code": "printf",
+      "severity": "LOW",
+      "suggestion": "Remove debug code in production"
+    }
+  ],
+  "tokens": [
+    {
+      "value": "/",
+      "line": 1,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "*",
+      "line": 1,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "*",
+      "line": 1,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "*",
+      "line": 2,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "test_firmware",
+      "line": 2,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": ".",
+      "line": 2,
+      "type": "SEPARATOR",
+      "security_tags": []
+    },
+    {
+      "value": "c",
+      "line": 2,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "*",
+      "line": 3,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "Sample",
+      "line": 3,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "IoT",
+      "line": 3,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "Firmware",
+      "line": 3,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "for",
+      "line": 3,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "Testing",
+      "line": 3,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "the",
+      "line": 3,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "Secure",
+      "line": 3,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "Compiler",
+      "line": 3,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "*",
+      "line": 4,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "*",
+      "line": 5,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "This",
+      "line": 5,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "file",
+      "line": 5,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "contains",
+      "line": 5,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "various",
+      "line": 5,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "security",
+      "line": 5,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "vulnerabilities",
+      "line": 5,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "that",
+      "line": 5,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "*",
+      "line": 6,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "our",
+      "line": 6,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "compiler",
+      "line": 6,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "should",
+      "line": 6,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "detect",
+      "line": 6,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": ".",
+      "line": 6,
+      "type": "SEPARATOR",
+      "security_tags": []
+    },
+    {
+      "value": "*",
+      "line": 7,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "/",
+      "line": 7,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "include",
+      "line": 9,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "<",
+      "line": 9,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "stdio",
+      "line": 9,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": ".",
+      "line": 9,
+      "type": "SEPARATOR",
+      "security_tags": []
+    },
+    {
+      "value": "h",
+      "line": 9,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": ">",
+      "line": 9,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "include",
+      "line": 10,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "<",
+      "line": 10,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "stdlib",
+      "line": 10,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": ".",
+      "line": 10,
+      "type": "SEPARATOR",
+      "security_tags": []
+    },
+    {
+      "value": "h",
+      "line": 10,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": ">",
+      "line": 10,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "include",
+      "line": 11,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": "<",
+      "line": 11,
+      "type": "OPERATOR",
+      "security_tags": []
+    },
+    {
+      "value": "string",
+      "line": 11,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    },
+    {
+      "value": ".",
+      "line": 11,
+      "type": "SEPARATOR",
+      "security_tags": []
+    },
+    {
+      "value": "h",
+      "line": 11,
+      "type": "IDENTIFIER",
+      "security_tags": []
+    }
+  ]
+}

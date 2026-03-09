@@ -1,0 +1,253 @@
+========================================
+WEEK 4: SECURITY POLICY & GRAMMAR DESIGN
+========================================
+Date: March 2026
+Author: B. Amardeep (24CSB0B13)
+
+========================================
+SECURITY POLICY LANGUAGE (SPL) SPECIFICATION
+========================================
+
+Policies are defined in JSON format for easy parsing and modification.
+
+┌─────────────────────────────────────────────────────────┐
+│ POLICY STRUCTURE                                         │
+├─────────────────────────────────────────────────────────┤
+│ {                                                        │
+│   "policy_name": "string",                              │
+│   "target_device": "string",                            │
+│   "security_level": "LOW|MEDIUM|HIGH",                  │
+│   "rules": [ rule1, rule2, ... ]                        │
+│ }                                                        │
+└─────────────────────────────────────────────────────────┘
+
+========================================
+RULE TYPES AND EXAMPLES
+========================================
+
+1. HARDCODED_SECRETS RULE
+--------------------------
+{
+  "rule_id": "R001",
+  "rule_type": "NO_HARDCODED_SECRETS",
+  "severity": "CRITICAL",
+  "patterns": [
+    "api_key\\s*=\\s*[\"'][A-Za-z0-9]{16,}[\"']",
+    "password\\s*=\\s*[\"'][^\"']{6,}[\"']",
+    "token\\s*=\\s*[\"'][A-Za-z0-9+/=]{20,}[\"']"
+  ],
+  "message": "Hard-coded secrets detected. Use secure storage or key management."
+}
+
+2. CRYPTOGRAPHY RULE
+--------------------
+{
+  "rule_id": "R002",
+  "rule_type": "STRONG_CRYPTO_ONLY",
+  "severity": "HIGH",
+  "allowed_algorithms": ["AES-256-GCM", "SHA-256", "SHA-3", "Curve25519"],
+  "blocked_algorithms": ["DES", "MD5", "SHA1", "RC4", "AES-128-ECB"],
+  "message": "Weak cryptographic algorithm detected."
+}
+
+3. PROTOCOL SECURITY RULE
+--------------------------
+{
+  "rule_id": "R003",
+  "rule_type": "SECURE_PROTOCOL_REQUIRED",
+  "severity": "HIGH",
+  "protocols": {
+    "MQTT": {
+      "require_tls": true,
+      "min_tls_version": "TLSv1.2",
+      "require_auth": true
+    },
+    "CoAP": {
+      "require_dtls": true,
+      "min_dtls_version": "DTLSv1.2"
+    },
+    "HTTP": {
+      "require_https": true,
+      "block_http": true
+    }
+  },
+  "message": "Insecure protocol configuration detected."
+}
+
+4. MEMORY SAFETY RULE
+----------------------
+{
+  "rule_id": "R004",
+  "rule_type": "MEMORY_SAFETY",
+  "severity": "HIGH",
+  "blocked_functions": ["strcpy", "sprintf", "gets", "scanf", "strcat"],
+  "safe_alternatives": {
+    "strcpy": "strncpy or strlcpy",
+    "sprintf": "snprintf",
+    "gets": "fgets"
+  },
+  "message": "Unsafe memory function detected. Use bounded alternatives."
+}
+
+5. DEBUG INTERFACE RULE
+-----------------------
+{
+  "rule_id": "R005",
+  "rule_type": "DISABLE_DEBUG",
+  "severity": "MEDIUM",
+  "blocked_patterns": [
+    "printf\\s*\\(",
+    "Serial\\.print",
+    "DBG_PRINT",
+    "DEBUG\\s*="
+  ],
+  "message": "Debug interfaces should be disabled in production."
+}
+
+6. RANDOMNESS RULE
+-------------------
+{
+  "rule_id": "R006",
+  "rule_type": "SECURE_RANDOM",
+  "severity": "HIGH",
+  "blocked_functions": ["rand()", "random()", "srand()"],
+  "required_functions": ["getrandom()", "RNG_secure()", "esp_random()"],
+  "message": "Insecure random number generator detected."
+}
+
+========================================
+PREDEFINED POLICY PROFILES
+========================================
+
+PROFILE: LOW_SECURITY (Development)
+-------------------------------------
+{
+  "policy_name": "development_profile",
+  "target_device": "any",
+  "security_level": "LOW",
+  "rules": [
+    {"rule_id": "R004", "enabled": true},   // Memory safety
+    {"rule_id": "R006", "enabled": true}    // Secure random
+  ],
+  "description": "Minimal checks for development phase"
+}
+
+PROFILE: MEDIUM_SECURITY (Testing)
+------------------------------------
+{
+  "policy_name": "testing_profile",
+  "target_device": "any",
+  "security_level": "MEDIUM",
+  "rules": [
+    {"rule_id": "R001", "enabled": true},   // No hardcoded secrets
+    {"rule_id": "R002", "enabled": true},   // Strong crypto
+    {"rule_id": "R004", "enabled": true},   // Memory safety
+    {"rule_id": "R006", "enabled": true}    // Secure random
+  ],
+  "description": "Standard checks for testing phase"
+}
+
+PROFILE: HIGH_SECURITY (Production - Battery Powered)
+------------------------------------------------------
+{
+  "policy_name": "production_battery_profile",
+  "target_device": "battery_operated",
+  "security_level": "HIGH",
+  "energy_aware": true,
+  "rules": [
+    {"rule_id": "R001", "enabled": true},   // No hardcoded secrets
+    {"rule_id": "R002", "enabled": true},   // Strong crypto
+    {"rule_id": "R003", "enabled": true},   // Secure protocols
+    {"rule_id": "R004", "enabled": true},   // Memory safety
+    {"rule_id": "R005", "enabled": true},   // Disable debug
+    {"rule_id": "R006", "enabled": true}    // Secure random
+  ],
+  "optimizations": {
+    "crypto": "lightweight",
+    "logging": "reduced",
+    "sleep_mode": "aggressive"
+  }
+}
+
+PROFILE: HIGH_SECURITY (Production - Line Powered)
+---------------------------------------------------
+{
+  "policy_name": "production_line_profile",
+  "target_device": "line_powered",
+  "security_level": "HIGH",
+  "energy_aware": false,
+  "rules": [
+    {"rule_id": "R001", "enabled": true},
+    {"rule_id": "R002", "enabled": true},
+    {"rule_id": "R003", "enabled": true},
+    {"rule_id": "R004", "enabled": true},
+    {"rule_id": "R005", "enabled": true},
+    {"rule_id": "R006", "enabled": true}
+  ],
+  "optimizations": {
+    "crypto": "maximum",
+    "logging": "full",
+    "monitoring": "enabled"
+  }
+}
+
+========================================
+GRAMMAR EXTENSIONS FOR SECURITY ANNOTATIONS
+========================================
+
+We extend C grammar with special comments for security hints:
+
+┌─────────────────────────────────────────────────────────┐
+│ SECURITY ANNOTATION SYNTAX                               │
+├─────────────────────────────────────────────────────────┤
+│ // @security:rule [rule_id] [parameters]                │
+│ // @security:ignore [rule_id]                            │
+│ // @security:level [LOW|MEDIUM|HIGH]                     │
+│ // @security:sensitive [variable_name]                   │
+│ // @security:declassify [variable_name]                  │
+└─────────────────────────────────────────────────────────┘
+
+EXAMPLES:
+---------
+// @security:sensitive api_key
+char api_key[32] = "stored_in_secure_element";
+
+// @security:ignore R001
+char password[] = "temp_password";  // Testing only
+
+// @security:level HIGH
+void process_payment() {
+    // This function requires high security
+}
+
+// @security:rule R003 require_tls=true
+mqtt_connect(&client, "iot.eclipse.org", 1883);
+
+========================================
+EXTENDED GRAMMAR (EBNF NOTATION)
+========================================
+
+Original C grammar remains unchanged. We add:
+
+<translation-unit> ::= {<external-declaration>}*
+                     | <security-annotation>
+
+<security-annotation> ::= "//" "@security:" <annotation-type> 
+                          [<annotation-params>] <newline>
+
+<annotation-type> ::= "sensitive" | "ignore" | "level" | "rule"
+
+<annotation-params> ::= <identifier> | <string-literal> 
+                       | <key-value-pair> {"," <key-value-pair>}*
+
+<key-value-pair> ::= <identifier> "=" <literal>
+
+<security-node> ::= <function-call> 
+                   | <declaration> 
+                   | <expression>
+                   where <function-call> in security_functions
+
+<security_functions> ::= cryptographic functions
+                        | network I/O functions
+                        | file I/O functions
+                        | debug functions

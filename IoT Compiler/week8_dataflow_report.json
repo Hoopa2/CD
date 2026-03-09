@@ -1,0 +1,137 @@
+{
+  "phase": "Data-Flow Analysis (Week 8)",
+  "tainted_variables": [
+    "PASSWORD",
+    "API_KEY",
+    "SECRET_TOKEN"
+  ],
+  "taint_sources": {
+    "API_KEY": {
+      "line": 142,
+      "reason": "Sensitive variable declaration"
+    },
+    "PASSWORD": {
+      "line": 148,
+      "reason": "Sensitive variable declaration"
+    },
+    "SECRET_TOKEN": {
+      "line": 148,
+      "reason": "Sensitive variable declaration"
+    }
+  },
+  "data_flow_edges": 0,
+  "data_flow_graph": [],
+  "leak_violations": 11,
+  "violations": [
+    {
+      "phase": "DATAFLOW",
+      "line": 68,
+      "type": "SENSITIVE_DATA_LEAK",
+      "sink_function": "http_post",
+      "leaked_variable": "API_KEY",
+      "severity": "CRITICAL",
+      "message": "Sensitive data API_KEY leaked via http_post",
+      "suggestion": "Encrypt or redact sensitive data before output"
+    },
+    {
+      "phase": "DATAFLOW",
+      "line": 120,
+      "type": "SENSITIVE_DATA_LEAK",
+      "sink_function": "printf",
+      "leaked_variable": "API_KEY",
+      "severity": "CRITICAL",
+      "message": "Sensitive data API_KEY leaked via printf",
+      "suggestion": "Encrypt or redact sensitive data before output"
+    },
+    {
+      "phase": "DATAFLOW",
+      "line": 120,
+      "type": "SENSITIVE_DATA_LEAK",
+      "sink_function": "printf",
+      "leaked_variable": "PASSWORD",
+      "severity": "CRITICAL",
+      "message": "Sensitive data PASSWORD leaked via printf",
+      "suggestion": "Encrypt or redact sensitive data before output"
+    },
+    {
+      "phase": "DATAFLOW",
+      "line": 121,
+      "type": "SENSITIVE_DATA_LEAK",
+      "sink_function": "printf",
+      "leaked_variable": "API_KEY",
+      "severity": "CRITICAL",
+      "message": "Sensitive data API_KEY leaked via printf",
+      "suggestion": "Encrypt or redact sensitive data before output"
+    },
+    {
+      "phase": "DATAFLOW",
+      "line": 121,
+      "type": "SENSITIVE_DATA_LEAK",
+      "sink_function": "printf",
+      "leaked_variable": "PASSWORD",
+      "severity": "CRITICAL",
+      "message": "Sensitive data PASSWORD leaked via printf",
+      "suggestion": "Encrypt or redact sensitive data before output"
+    },
+    {
+      "phase": "DATAFLOW",
+      "line": 122,
+      "type": "SENSITIVE_DATA_LEAK",
+      "sink_function": "printf",
+      "leaked_variable": "API_KEY",
+      "severity": "CRITICAL",
+      "message": "Sensitive data API_KEY leaked via printf",
+      "suggestion": "Encrypt or redact sensitive data before output"
+    },
+    {
+      "phase": "DATAFLOW",
+      "line": 122,
+      "type": "SENSITIVE_DATA_LEAK",
+      "sink_function": "printf",
+      "leaked_variable": "PASSWORD",
+      "severity": "CRITICAL",
+      "message": "Sensitive data PASSWORD leaked via printf",
+      "suggestion": "Encrypt or redact sensitive data before output"
+    },
+    {
+      "phase": "DATAFLOW",
+      "line": 123,
+      "type": "SENSITIVE_DATA_LEAK",
+      "sink_function": "printf",
+      "leaked_variable": "API_KEY",
+      "severity": "CRITICAL",
+      "message": "Sensitive data API_KEY leaked via printf",
+      "suggestion": "Encrypt or redact sensitive data before output"
+    },
+    {
+      "phase": "DATAFLOW",
+      "line": 123,
+      "type": "SENSITIVE_DATA_LEAK",
+      "sink_function": "printf",
+      "leaked_variable": "PASSWORD",
+      "severity": "CRITICAL",
+      "message": "Sensitive data PASSWORD leaked via printf",
+      "suggestion": "Encrypt or redact sensitive data before output"
+    },
+    {
+      "phase": "DATAFLOW",
+      "line": 149,
+      "type": "SENSITIVE_DATA_LEAK",
+      "sink_function": "write_to_log",
+      "leaked_variable": "PASSWORD",
+      "severity": "CRITICAL",
+      "message": "Sensitive data PASSWORD leaked via write_to_log",
+      "suggestion": "Encrypt or redact sensitive data before output"
+    },
+    {
+      "phase": "DATAFLOW",
+      "line": 149,
+      "type": "SENSITIVE_DATA_LEAK",
+      "sink_function": "write_to_log",
+      "leaked_variable": "SECRET_TOKEN",
+      "severity": "CRITICAL",
+      "message": "Sensitive data SECRET_TOKEN leaked via write_to_log",
+      "suggestion": "Encrypt or redact sensitive data before output"
+    }
+  ]
+}
